@@ -27,12 +27,32 @@ with sync_playwright() as p:
             page.keyboard.press('Enter')
         elif(x==2):
             
-            element_html=page.content()
+            # element_html=page.content()
+            # soup = BeautifulSoup(element_html, 'html.parser')
+
+            # # Find the element with the class name 'markdown'
+            # text_obj = soup.find(class_='markdown')
+
+            element_html = page.content()
             soup = BeautifulSoup(element_html, 'html.parser')
 
-            # Find the element with the class name 'markdown'
-            text_obj = soup.find(class_='markdown')
+            # Find all elements with the class name 'markdown'
+            markdown_elements = soup.find_all(class_='markdown')
+            text_obj=''
+            # Check if there are elements with the 'markdown' class
+            if markdown_elements:
+                # Locate the last element
+                last_markdown_element = markdown_elements[-1]
+                text_obj=last_markdown_element
+                # Now you can work with the last 'markdown' element
+                # For example, you can access its text content
+                # text_content = last_markdown_element.get_text()
+                # Or you can further process the last 'markdown' element as needed
+            else:
+                # Handle the case when no elements with the 'markdown' class are found
+                print("No elements with class 'markdown' found.")
             text=text_obj.get_text(separator='\n')
+            print(text)
             test_cases=text_to_dictionary(text)
             # print(test_cases)
             write_dictionary(test_cases)

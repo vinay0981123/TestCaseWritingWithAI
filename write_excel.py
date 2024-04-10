@@ -17,20 +17,20 @@ def check_matching(text1, text2):
     return text1_lower in text2_lower or text2_lower in text1_lower
 
 
-new_data = [
-    {'Test Objective': 'To verify that users can successfully create an account by filling in the required details.', 
-     'User Story': "As a new user, I want to create an account so that I can access the application's features.", 
-     'Action Steps': '\n1. Click on the "Create an account" link from the login screen.\n2. Fill in the email, password, and confirm password fields.\n3. Click on the "Submit" button.', 
-     'Expected Result': "User account should be successfully created, and the user should be redirected to the application's dashboard/homepage.", 
-     'Prerequisite': 'The application must be installed and accessible.', 
-     'Severity': 'High.'}, 
-    {'Test Objective': 'To verify that users can toggle the visibility of the password fields.', 
-     'User Story': 'As a user, I want the option to see my password while typing it to ensure I am entering it correctly.', 
-     'Action Steps': '\n1. Click on the eye icon beside the "Password" field.\n2. Verify that the password is displayed in plain text.\n3. Click on the eye icon again to toggle back to the masked password.', 
-     'Expected Result': "Password should toggle between visible and masked states as per the user's action.", 
-     'Prerequisite': 'The application must be installed and accessible.', 
-     'Severity': 'Medium.'}
-]
+# new_data = [
+#     {'Test Objective': 'To verify that users can successfully create an account by filling in the required details.', 
+#      'User Story': "As a new user, I want to create an account so that I can access the application's features.", 
+#      'Action Steps': '\n1. Click on the "Create an account" link from the login screen.\n2. Fill in the email, password, and confirm password fields.\n3. Click on the "Submit" button.', 
+#      'Expected Result': "User account should be successfully created, and the user should be redirected to the application's dashboard/homepage.", 
+#      'Prerequisite': 'The application must be installed and accessible.', 
+#      'Severity': 'High.'}, 
+#     {'Test Objective': 'To verify that users can toggle the visibility of the password fields.', 
+#      'User Story': 'As a user, I want the option to see my password while typing it to ensure I am entering it correctly.', 
+#      'Action Steps': '\n1. Click on the eye icon beside the "Password" field.\n2. Verify that the password is displayed in plain text.\n3. Click on the eye icon again to toggle back to the masked password.', 
+#      'Expected Result': "Password should toggle between visible and masked states as per the user's action.", 
+#      'Prerequisite': 'The application must be installed and accessible.', 
+#      'Severity': 'Medium.'}
+# ]
 def write_dictionary(new_data):
     # Load the Excel workbook
     workbook = load_workbook('TJS.xlsx')
