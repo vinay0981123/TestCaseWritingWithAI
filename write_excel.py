@@ -1,6 +1,4 @@
 from openpyxl import load_workbook
-
-
 def number_to_alphabet(num):
     if num < 0:
         return None
@@ -32,8 +30,22 @@ def check_matching(text1, text2):
 #      'Severity': 'Medium.'}
 # ]
 def write_dictionary(new_data):
+    import os
+
+    # Get the current working directory
+    current_directory = os.getcwd()
+
+    # List all files in the current directory
+    all_files = os.listdir(current_directory)
+
+    # Filter out files with the extension .xlsx
+    xlsx_files = [file for file in all_files if file.endswith('.xlsx')]
+    filename=''
+    # Print the list of XLSX filenames
+    for filename in xlsx_files:
+        print(filename)
     # Load the Excel workbook
-    workbook = load_workbook('TJS.xlsx')
+    workbook = load_workbook(filename)
     sheet = workbook.active
     # Access the desired worksheet
     sheet = workbook.active  # Or you can specify the worksheet name, e.g., workbook['Sheet1']
