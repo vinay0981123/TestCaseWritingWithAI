@@ -60,6 +60,7 @@ def write_dictionary(new_data):
             break
 
     cell_no=str(int(cell_cordinate[1:])+1)
+    print("cell_no:::::::::", cell_no)
     for data in new_data:
         # Search for the key containing "Objective"
         # print("data::", data)
@@ -102,4 +103,5 @@ def write_dictionary(new_data):
     # sheet[cell_cordinate] = "Your content here"  # Assign the desired value to the cell
     # Save the workbook
     workbook.save('TJS.xlsx')
+    workbook.close()
 

@@ -20,7 +20,12 @@ with sync_playwright() as p:
 
     page.goto("https://chatgpt.com")  # Navigates to the specified page
     while True:
-        x=int(input("Press 1 for Qury and 2 for writing testcases and 3 for exit::"))
+        x = None
+        try: 
+            x=int(input("Press 1 for Qury and 2 for writing testcases and 3 for exit::"))
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+            continue
         if(x==1):
             query=input('Enter the Query::')
             page.wait_for_selector('#prompt-textarea').fill(query)
@@ -52,9 +57,9 @@ with sync_playwright() as p:
                 # Handle the case when no elements with the 'markdown' class are found
                 print("No elements with class 'markdown' found.")
             text=text_obj.get_text(separator='\n')
-            print(text)
+            # print(text)
             test_cases=text_to_dictionary(text)
-            # print(test_cases)
+            print(test_cases)
             write_dictionary(test_cases)
             
         else:
