@@ -1,6 +1,6 @@
 //Installation
 Clone the Repository:
-git clone <repository_url>
+git clone https://github.com/vinay0981123/TestCaseWritingWithAI.git
 Navigate to Project Directory:
 cd <project_directory>
 Install Dependencies:
