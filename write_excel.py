@@ -1,4 +1,5 @@
 from openpyxl import load_workbook
+import time
 def number_to_alphabet(num):
     if num < 0:
         return None
@@ -42,13 +43,16 @@ def write_dictionary(new_data):
     xlsx_files = [file for file in all_files if file.endswith('.xlsx')]
     filename=''
     # Print the list of XLSX filenames
-    for filename in xlsx_files:
+    for file in xlsx_files:
+        filename=file
         print(filename)
     # Load the Excel workbook
     workbook = load_workbook(filename)
     sheet = workbook.active
-    # Access the desired worksheet
-    sheet = workbook.active  # Or you can specify the worksheet name, e.g., workbook['Sheet1']
+    # # Access the desired worksheet
+    # sheet = workbook.active  # Or you can specify the worksheet name, e.g., workbook['Sheet1']
+    time.sleep(2)
+    
     cell_cordinate=''
     # Iterate through cells in column A
     column_A = sheet['A']
@@ -59,7 +63,8 @@ def write_dictionary(new_data):
         if(is_empty):
             break
 
-    cell_no=str(int(cell_cordinate[1:])+1)
+    cell_no=str(int(cell_cordinate[1:]))
+    
     print("cell_no:::::::::", cell_no)
     for data in new_data:
         # Search for the key containing "Objective"
@@ -102,6 +107,6 @@ def write_dictionary(new_data):
     # Write content to cell A24
     # sheet[cell_cordinate] = "Your content here"  # Assign the desired value to the cell
     # Save the workbook
-    workbook.save('TJS.xlsx')
+    workbook.save(filename)
     workbook.close()
 
